@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 2,
-    "start": "2019-01-21T15:22:31.525Z",
-    "end": "2019-01-21T15:22:31.610Z",
-    "duration": 85,
+    "start": "2019-01-21T16:46:07.204Z",
+    "end": "2019-01-21T16:46:08.178Z",
+    "duration": 974,
     "testsRegistered": 3,
     "passPercent": 33.3,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "87a28b43-9c81-477f-9461-3817a1baa601",
+    "uuid": "fe4cce85-a0fa-4f12-8bbf-650cb5addad1",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -27,72 +27,72 @@
     "afterHooks": [],
     "tests": [
       {
-        "title": "Verify get config call",
-        "fullTitle": "Verify get config call",
+        "title": "Test : Verify get config call",
+        "fullTitle": "Test : Verify get config call",
         "timedOut": false,
-        "duration": 46,
+        "duration": 953,
         "state": "passed",
-        "speed": "medium",
+        "speed": "slow",
         "pass": true,
         "fail": false,
         "pending": false,
-        "code": "const expectedoutput = \"{\\\"mess\\\":\\\"entiy for tenant_10\\\",\\\"entity\\\":{\\\"name\\\":\\\"Tenant_10\\\",\\\"fields\\\":[\\\"address_10\\\",\\\"city\\\",\\\"country\\\"],\\\"datattype\\\":\\\"\\\",\\\"relationship\\\":\\\"customer_10\\\"}}\";\nrequest('http://localhost:3000/tenants/10/config' , function(error, response, body) {\n    expect(JSON.stringify(body)).to.equal(JSON.stringify(expectedoutput));\n    expect(response.statusCode).to.equal(200);\n    done();\n});",
+        "code": "const expectedoutput = \"{\\\"mess\\\":\\\"entiy for tenant_10\\\",\\\"entity\\\":{\\\"name\\\":\\\"Tenant_10\\\",\\\"fields\\\":[\\\"address_10\\\",\\\"city\\\",\\\"country\\\"],\\\"datattype\\\":\\\"\\\",\\\"relationship\\\":\\\"customer_10\\\"}}\";\nrequest('https://secret-escarpment-70468.herokuapp.com/tenants/10/config' , function(error, response, body) {\n    expect(JSON.stringify(body)).to.equal(JSON.stringify(expectedoutput));\n    expect(response.statusCode).to.equal(200);\n    done();\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "2df38fdb-a3ed-4c0f-80c6-e44ef7ff33e3",
+        "uuid": "dcef6c3f-3256-4a05-b4eb-3272f626a94e",
         "isHook": false,
         "skipped": false
       },
       {
-        "title": "Upload customer",
-        "fullTitle": "Upload customer",
+        "title": "Test : Upload customer",
+        "fullTitle": "Test : Upload customer",
         "timedOut": false,
         "duration": 4,
         "state": "failed",
         "pass": false,
         "fail": true,
         "pending": false,
-        "code": "request.post({\n    url:'http://localhost:3000/customers/upload',\n    headers:{'content-type':'application/json','mediatype':'multipart'},\n    body:{\"test\":\"TestExcel upload\"}\n}, function(response, body){\n    expect(JSON.stringify(body)).to.equal(JSON.stringify({message: \"Uploaded successfully\"}));\n    expect(response.statusCode).to.equal(200);\n});",
+        "code": "request.post({\n    url:'https://secret-escarpment-70468.herokuapp.com/customers/upload',\n    headers:{'content-type':'application/json','mediatype':'multipart'},\n    body:{\"test\":\"TestExcel upload\"}\n}, function(response, body){\n    expect(JSON.stringify(body)).to.equal(JSON.stringify({message: \"Uploaded successfully\"}));\n    expect(response.statusCode).to.equal(200);\n    done();\n});",
         "err": {
           "message": "AssertionError: expected undefined to equal '{\"message\":\"Uploaded successfully\"}'",
           "estack": "AssertionError: expected undefined to equal '{\"message\":\"Uploaded successfully\"}'\n    at Request._callback (tests\\tests.js:19:41)\n    at self.callback (node_modules\\request\\request.js:185:22)\n    at setContentLength (node_modules\\request\\request.js:437:14)\n    at Request.init (node_modules\\request\\request.js:442:5)\n    at new Request (node_modules\\request\\request.js:127:8)\n    at request (node_modules\\request\\index.js:53:10)\n    at Function.post (node_modules\\request\\index.js:61:12)\n    at Context.<anonymous> (tests\\tests.js:14:13)"
         },
         "isRoot": true,
-        "uuid": "2f4d9638-f102-4d1d-b09b-4abe29cc9d97",
+        "uuid": "a4127095-0b8f-45d0-9713-c6b1d1aa6e82",
         "isHook": false,
         "skipped": false
       },
       {
-        "title": "Upload customer- No media type",
-        "fullTitle": "Upload customer- No media type",
+        "title": "Test : Upload customer- No media type",
+        "fullTitle": "Test : Upload customer- No media type",
         "timedOut": false,
         "duration": 0,
         "state": "failed",
         "pass": false,
         "fail": true,
         "pending": false,
-        "code": "request.post({\n    url:'http://localhost:3000/customers/upload',\n    headers:{'content-type':'application/json'},\n    body:{\"test\":\"TestExcel upload\"}\n}, function(response, body){\n    expect(JSON.stringify(body)).to.equal(JSON.stringify({message: \"Unsupported media type\"}));\n    expect(response.statusCode).to.equal(415);\n});",
+        "code": "request.post({\n    url:'https://secret-escarpment-70468.herokuapp.com/customers/upload',\n    headers:{'content-type':'application/json'},\n    body:{\"test\":\"TestExcel upload\"}\n}, function(response, body){\n    expect(JSON.stringify(body)).to.equal(JSON.stringify({message: \"Unsupported media type\"}));\n    expect(response.statusCode).to.equal(415);\n    done();\n});",
         "err": {
           "message": "AssertionError: expected undefined to equal '{\"message\":\"Unsupported media type\"}'",
-          "estack": "AssertionError: expected undefined to equal '{\"message\":\"Unsupported media type\"}'\n    at Request._callback (tests\\tests.js:30:41)\n    at self.callback (node_modules\\request\\request.js:185:22)\n    at setContentLength (node_modules\\request\\request.js:437:14)\n    at Request.init (node_modules\\request\\request.js:442:5)\n    at new Request (node_modules\\request\\request.js:127:8)\n    at request (node_modules\\request\\index.js:53:10)\n    at Function.post (node_modules\\request\\index.js:61:12)\n    at Context.<anonymous> (tests\\tests.js:25:13)"
+          "estack": "AssertionError: expected undefined to equal '{\"message\":\"Unsupported media type\"}'\n    at Request._callback (tests\\tests.js:31:41)\n    at self.callback (node_modules\\request\\request.js:185:22)\n    at setContentLength (node_modules\\request\\request.js:437:14)\n    at Request.init (node_modules\\request\\request.js:442:5)\n    at new Request (node_modules\\request\\request.js:127:8)\n    at request (node_modules\\request\\index.js:53:10)\n    at Function.post (node_modules\\request\\index.js:61:12)\n    at Context.<anonymous> (tests\\tests.js:26:13)"
         },
         "isRoot": true,
-        "uuid": "a8eefc11-d4c4-4954-a2a2-2c85f4d2f1c9",
+        "uuid": "36496172-d4d1-4110-8818-05e8e6b91826",
         "isHook": false,
         "skipped": false
       }
     ],
     "suites": [],
     "passes": [
-      "2df38fdb-a3ed-4c0f-80c6-e44ef7ff33e3"
+      "dcef6c3f-3256-4a05-b4eb-3272f626a94e"
     ],
     "failures": [
-      "2f4d9638-f102-4d1d-b09b-4abe29cc9d97",
-      "a8eefc11-d4c4-4954-a2a2-2c85f4d2f1c9"
+      "a4127095-0b8f-45d0-9713-c6b1d1aa6e82",
+      "36496172-d4d1-4110-8818-05e8e6b91826"
     ],
     "pending": [],
     "skipped": [],
-    "duration": 50,
+    "duration": 957,
     "root": true,
     "rootEmpty": false,
     "_timeout": 2000

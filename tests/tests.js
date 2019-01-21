@@ -18,6 +18,7 @@ it('Test : Upload customer', function(done) {
     }, function(response, body){
         expect(JSON.stringify(body)).to.equal(JSON.stringify({message: "Uploaded successfully"}));
         expect(response.statusCode).to.equal(200);
+        done();
     });
 });
 
@@ -29,5 +30,6 @@ it('Test : Upload customer- No media type', function(done) {
     }, function(response, body){
         expect(JSON.stringify(body)).to.equal(JSON.stringify({message: "Unsupported media type"}));
         expect(response.statusCode).to.equal(415);
+        done();
     });
 });
