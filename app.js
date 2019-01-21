@@ -16,6 +16,7 @@ app.get('/tenants/:id/config', (req, resp, next) => {
     mess: "entiy for tenant_" + req.params.id,
     entity: entityconfig,
   });
+  next();
 });
 
 app.post('/customers/upload', (req, resp, next) => {
@@ -33,6 +34,6 @@ app.post('/customers/upload', (req, resp, next) => {
       message: "Uploaded successfully"
     });
   }
-
+  next();
 });
 module.exports = app;
