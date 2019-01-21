@@ -5,15 +5,6 @@ const app = express();
 
 app.use(bodyparser.json());
 
-app.post("/api/blogs", (req, res, next) => {
-  const blog = req.body;
-  console.log(req.body);
-  console.log(blog);
-  res.status(200).json({
-    message: 'blog added successfully'
-  });
-});
-
 app.get('/tenants/:id/config', (req, resp, next) => {
   const entityconfig = {
     "name": "Tenant_" + req.params.id,
