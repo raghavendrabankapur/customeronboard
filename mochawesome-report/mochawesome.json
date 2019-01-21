@@ -1,0 +1,101 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2019-01-21T15:22:31.525Z",
+    "end": "2019-01-21T15:22:31.610Z",
+    "duration": 85,
+    "testsRegistered": 3,
+    "passPercent": 33.3,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "danger",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "87a28b43-9c81-477f-9461-3817a1baa601",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [
+      {
+        "title": "Verify get config call",
+        "fullTitle": "Verify get config call",
+        "timedOut": false,
+        "duration": 46,
+        "state": "passed",
+        "speed": "medium",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "const expectedoutput = \"{\\\"mess\\\":\\\"entiy for tenant_10\\\",\\\"entity\\\":{\\\"name\\\":\\\"Tenant_10\\\",\\\"fields\\\":[\\\"address_10\\\",\\\"city\\\",\\\"country\\\"],\\\"datattype\\\":\\\"\\\",\\\"relationship\\\":\\\"customer_10\\\"}}\";\nrequest('http://localhost:3000/tenants/10/config' , function(error, response, body) {\n    expect(JSON.stringify(body)).to.equal(JSON.stringify(expectedoutput));\n    expect(response.statusCode).to.equal(200);\n    done();\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "2df38fdb-a3ed-4c0f-80c6-e44ef7ff33e3",
+        "isHook": false,
+        "skipped": false
+      },
+      {
+        "title": "Upload customer",
+        "fullTitle": "Upload customer",
+        "timedOut": false,
+        "duration": 4,
+        "state": "failed",
+        "pass": false,
+        "fail": true,
+        "pending": false,
+        "code": "request.post({\n    url:'http://localhost:3000/customers/upload',\n    headers:{'content-type':'application/json','mediatype':'multipart'},\n    body:{\"test\":\"TestExcel upload\"}\n}, function(response, body){\n    expect(JSON.stringify(body)).to.equal(JSON.stringify({message: \"Uploaded successfully\"}));\n    expect(response.statusCode).to.equal(200);\n});",
+        "err": {
+          "message": "AssertionError: expected undefined to equal '{\"message\":\"Uploaded successfully\"}'",
+          "estack": "AssertionError: expected undefined to equal '{\"message\":\"Uploaded successfully\"}'\n    at Request._callback (tests\\tests.js:19:41)\n    at self.callback (node_modules\\request\\request.js:185:22)\n    at setContentLength (node_modules\\request\\request.js:437:14)\n    at Request.init (node_modules\\request\\request.js:442:5)\n    at new Request (node_modules\\request\\request.js:127:8)\n    at request (node_modules\\request\\index.js:53:10)\n    at Function.post (node_modules\\request\\index.js:61:12)\n    at Context.<anonymous> (tests\\tests.js:14:13)"
+        },
+        "isRoot": true,
+        "uuid": "2f4d9638-f102-4d1d-b09b-4abe29cc9d97",
+        "isHook": false,
+        "skipped": false
+      },
+      {
+        "title": "Upload customer- No media type",
+        "fullTitle": "Upload customer- No media type",
+        "timedOut": false,
+        "duration": 0,
+        "state": "failed",
+        "pass": false,
+        "fail": true,
+        "pending": false,
+        "code": "request.post({\n    url:'http://localhost:3000/customers/upload',\n    headers:{'content-type':'application/json'},\n    body:{\"test\":\"TestExcel upload\"}\n}, function(response, body){\n    expect(JSON.stringify(body)).to.equal(JSON.stringify({message: \"Unsupported media type\"}));\n    expect(response.statusCode).to.equal(415);\n});",
+        "err": {
+          "message": "AssertionError: expected undefined to equal '{\"message\":\"Unsupported media type\"}'",
+          "estack": "AssertionError: expected undefined to equal '{\"message\":\"Unsupported media type\"}'\n    at Request._callback (tests\\tests.js:30:41)\n    at self.callback (node_modules\\request\\request.js:185:22)\n    at setContentLength (node_modules\\request\\request.js:437:14)\n    at Request.init (node_modules\\request\\request.js:442:5)\n    at new Request (node_modules\\request\\request.js:127:8)\n    at request (node_modules\\request\\index.js:53:10)\n    at Function.post (node_modules\\request\\index.js:61:12)\n    at Context.<anonymous> (tests\\tests.js:25:13)"
+        },
+        "isRoot": true,
+        "uuid": "a8eefc11-d4c4-4954-a2a2-2c85f4d2f1c9",
+        "isHook": false,
+        "skipped": false
+      }
+    ],
+    "suites": [],
+    "passes": [
+      "2df38fdb-a3ed-4c0f-80c6-e44ef7ff33e3"
+    ],
+    "failures": [
+      "2f4d9638-f102-4d1d-b09b-4abe29cc9d97",
+      "a8eefc11-d4c4-4954-a2a2-2c85f4d2f1c9"
+    ],
+    "pending": [],
+    "skipped": [],
+    "duration": 50,
+    "root": true,
+    "rootEmpty": false,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}
