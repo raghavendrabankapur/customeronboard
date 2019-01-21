@@ -1,7 +1,7 @@
 var expect  = require('chai').expect;
 var request = require('request');
 
-it('Verify get config call', function(done) {
+it('Test : Verify get config call', function(done) {
     const expectedoutput = "{\"mess\":\"entiy for tenant_10\",\"entity\":{\"name\":\"Tenant_10\",\"fields\":[\"address_10\",\"city\",\"country\"],\"datattype\":\"\",\"relationship\":\"customer_10\"}}";
     request('http://localhost:3000/tenants/10/config' , function(error, response, body) {
         expect(JSON.stringify(body)).to.equal(JSON.stringify(expectedoutput));
@@ -10,7 +10,7 @@ it('Verify get config call', function(done) {
     });
 });
 
-it('Upload customer', function(done) {
+it('Test : Upload customer', function(done) {
     request.post({
         url:'http://localhost:3000/customers/upload',
         headers:{'content-type':'application/json','mediatype':'multipart'},
@@ -21,7 +21,7 @@ it('Upload customer', function(done) {
     });
 });
 
-it('Upload customer- No media type', function(done) {
+it('Test : Upload customer- No media type', function(done) {
     request.post({
         url:'http://localhost:3000/customers/upload',
         headers:{'content-type':'application/json'},
